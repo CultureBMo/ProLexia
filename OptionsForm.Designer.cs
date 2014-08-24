@@ -1,6 +1,6 @@
 ﻿namespace ProLexia
 {
-    partial class OptionsForm
+    public partial class OptionsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -13,10 +13,11 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && (this.components != null))
             {
-                components.Dispose();
+                this.components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -35,14 +36,15 @@
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.opacityTrackBar = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // chooseButton
             // 
-            this.chooseButton.Location = new System.Drawing.Point(170, 12);
+            this.chooseButton.Location = new System.Drawing.Point(177, 10);
             this.chooseButton.Name = "chooseButton";
-            this.chooseButton.Size = new System.Drawing.Size(75, 23);
+            this.chooseButton.Size = new System.Drawing.Size(59, 23);
             this.chooseButton.TabIndex = 1;
             this.chooseButton.Text = "Choose";
             this.chooseButton.UseVisualStyleBackColor = true;
@@ -50,7 +52,7 @@
             // 
             // colorTextBox
             // 
-            this.colorTextBox.Location = new System.Drawing.Point(64, 14);
+            this.colorTextBox.Location = new System.Drawing.Point(71, 13);
             this.colorTextBox.Name = "colorTextBox";
             this.colorTextBox.Size = new System.Drawing.Size(100, 20);
             this.colorTextBox.TabIndex = 1;
@@ -58,7 +60,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 0;
@@ -84,14 +86,26 @@
             this.opacityTrackBar.Name = "opacityTrackBar";
             this.opacityTrackBar.Size = new System.Drawing.Size(181, 45);
             this.opacityTrackBar.TabIndex = 3;
+            this.opacityTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.opacityTrackBar.Value = 128;
-            this.opacityTrackBar.Scroll += new System.EventHandler(this.opacityTrackBar_Scroll);
+            this.opacityTrackBar.Scroll += new System.EventHandler(this.OpacityTrackBar_Scroll);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.Location = new System.Drawing.Point(97, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(148, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Copyright © CultureBMo 2014";
             // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(268, 100);
+            this.ClientSize = new System.Drawing.Size(253, 115);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.opacityTrackBar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.chooseButton);
@@ -100,6 +114,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OptionsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProLexia Options";
             this.Load += new System.EventHandler(this.OptionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrackBar)).EndInit();
@@ -116,5 +131,6 @@
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TrackBar opacityTrackBar;
+        private System.Windows.Forms.Label label3;
     }
 }

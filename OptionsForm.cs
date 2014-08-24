@@ -17,7 +17,7 @@
 
         public OptionsForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private static void SaveToConfig(string key, string value)
@@ -39,32 +39,32 @@
 
         private void ChooseButton_Click(object sender, EventArgs e)
         {
-            if (colorDialog.ShowDialog() == DialogResult.OK)
+            if (this.colorDialog.ShowDialog() == DialogResult.OK)
             {
-                colorTextBox.BackColor = colorDialog.Color;
+                this.colorTextBox.BackColor = this.colorDialog.Color;
 
-                this.Owner.BackColor = colorDialog.Color;
+                this.Owner.BackColor = this.colorDialog.Color;
 
-                SaveColorToConfig(colorDialog.Color);
+                this.SaveColorToConfig(this.colorDialog.Color);
             }
         }
 
-        private void opacityTrackBar_Scroll(object sender, EventArgs e)
+        private void OpacityTrackBar_Scroll(object sender, EventArgs e)
         {
             var mainForm = this.Owner as MainForm;
             mainForm.OverlayOpacity = Convert.ToByte(this.opacityTrackBar.Value);
 
-            SaveOpacityToConfig(this.opacityTrackBar.Value);
+            this.SaveOpacityToConfig(this.opacityTrackBar.Value);
         }
 
         private void OptionsForm_Load(object sender, EventArgs e)
         {
             var mainForm = this.Owner as MainForm;
 
-            colorTextBox.BackColor = mainForm.BackColor;
-            colorDialog.Color = mainForm.BackColor;
+            this.colorTextBox.BackColor = mainForm.BackColor;
+            this.colorDialog.Color = mainForm.BackColor;
 
-            opacityTrackBar.Value = mainForm.OverlayOpacity;
+            this.opacityTrackBar.Value = mainForm.OverlayOpacity;
         }
 
         private void SaveColorToConfig(Color color)

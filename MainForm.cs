@@ -9,7 +9,7 @@
     {
         private System.Windows.Forms.ContextMenu contextMenu;
         private System.Windows.Forms.MenuItem exitCommand;
-        private byte opacity = 128;
+        private byte overlayOpacity = 128;
         private System.Windows.Forms.MenuItem optionsCommand;
 
         public MainForm()
@@ -35,54 +35,27 @@
 
             this.ShowInTaskbar = false;
             this.TopMost = true;
-            this.BackColor = GetColorFromConfig();
+            this.BackColor = this.GetColorFromConfig();
             this.ControlBox = false;
             this.WindowState = FormWindowState.Maximized;
 
-            GetOpacityFromConfig();
-
-            SetWindow();
-        }
-
-        public enum GWL
-        {
-            ExStyle = -20
-        }
-
-        public enum LWA
-        {
-            ColorKey = 0x1,
-            Alpha = 0x2
-        }
-
-        public enum WS_EX
-        {
-            Transparent = 0x20,
-            Layered = 0x80000
+            this.OverlayOpacity = this.GetOpacityFromConfig();
         }
 
         public byte OverlayOpacity
         {
             get
             {
-                return this.opacity;
+                return this.overlayOpacity;
             }
+
             set
             {
-                this.opacity = value;
+                this.overlayOpacity = value;
 
-                SetWindow();
+                this.SetWindow();
             }
         }
-
-        [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "GetWindowLong")]
-        public static extern int GetWindowLong(IntPtr hWnd, GWL nIndex);
-
-        [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "SetLayeredWindowAttributes")]
-        public static extern bool SetLayeredWindowAttributes(IntPtr hWnd, int crKey, byte alpha, LWA dwFlags);
-
-        [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "SetWindowLong")]
-        public static extern int SetWindowLong(IntPtr hWnd, GWL nIndex, int dwNewLong);
 
         private void ExitCommand_Click(object sender, EventArgs e)
         {
@@ -95,9 +68,9 @@
 
             var colors = overlayColor.Split(',');
 
-            int red = GetInt(colors[0]);
-            int green = GetInt(colors[1]);
-            int blue = GetInt(colors[2]);
+            int red = this.GetInt(colors[0]);
+            int green = this.GetInt(colors[1]);
+            int blue = this.GetInt(colors[2]);
 
             return System.Drawing.Color.FromArgb(red, green, blue);
         }
@@ -111,13 +84,13 @@
             return returnInt;
         }
 
-        private void GetOpacityFromConfig()
+        private byte GetOpacityFromConfig()
         {
             var opacity = ConfigurationManager.AppSettings["Opacity"] ?? "128";
 
-            int opacityValue = GetInt(opacity);
+            int opacityValue = this.GetInt(opacity);
 
-            this.opacity = Convert.ToByte(opacityValue);
+            return Convert.ToByte(opacityValue);
         }
 
         private void OptionsCommand_Click(object sender, EventArgs e)
@@ -128,10 +101,10 @@
 
         private void SetWindow()
         {
-            int wl = GetWindowLong(this.Handle, GWL.ExStyle);
+            int wl = NativeMethods.GetWindowLong(this.Handle, NativeMethods.GWL.ExStyle);
             wl = wl | 0x80000 | 0x20;
-            SetWindowLong(this.Handle, GWL.ExStyle, wl);
-            SetLayeredWindowAttributes(this.Handle, 0, opacity, LWA.Alpha);
+            NativeMethods.SetWindowLong(this.Handle, NativeMethods.GWL.ExStyle, wl);
+            NativeMethods.SetLayeredWindowAttributes(this.Handle, 0, this.overlayOpacity, NativeMethods.LWA.Alpha);
         }
     }
 }
