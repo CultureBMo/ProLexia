@@ -1,14 +1,8 @@
 ﻿namespace ProLexia
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Configuration;
-    using System.Data;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     public partial class OptionsForm : Form
@@ -22,19 +16,26 @@
 
         private static void SaveToConfig(string key, string value)
         {
-            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var settings = configFile.AppSettings.Settings;
-            if (settings[key] == null)
+            try
             {
-                settings.Add(key, value);
-            }
-            else
-            {
-                settings[key].Value = value;
-            }
+                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var settings = configFile.AppSettings.Settings;
+                if (settings[key] == null)
+                {
+                    settings.Add(key, value);
+                }
+                else
+                {
+                    settings[key].Value = value;
+                }
 
-            configFile.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+                configFile.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            }
+            catch
+            {
+                MessageBox.Show("There was an error saving your options" + Environment.NewLine + "Please ensure your user account has Modify permissons to the ProLexia.config file");
+            }
         }
 
         private void ChooseButton_Click(object sender, EventArgs e)
