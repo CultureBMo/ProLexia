@@ -1,9 +1,9 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace ProLexia
+﻿namespace ProLexia
 {
+    using System;
+    using System.Drawing;
+    using System.Windows.Forms;
+
     public partial class MainForm : Form
     {
         private System.Windows.Forms.ContextMenu contextMenu;
@@ -11,7 +11,7 @@ namespace ProLexia
 
         public MainForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             this.exitCommand = new System.Windows.Forms.MenuItem();
             this.exitCommand.Index = 0;
@@ -63,7 +63,7 @@ namespace ProLexia
         [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "SetWindowLong")]
         public static extern int SetWindowLong(IntPtr hWnd, GWL nIndex, int dwNewLong);
 
-        private void ExitCommand_Click(object Sender, EventArgs e)
+        private void ExitCommand_Click(object sender, EventArgs e)
         {
             this.Close();
         }
