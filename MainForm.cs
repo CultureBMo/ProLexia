@@ -1,6 +1,7 @@
 ﻿namespace ProLexia
 {
     using System;
+    using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
 
@@ -33,7 +34,7 @@
 
             this.ShowInTaskbar = false;
             this.TopMost = true;
-            this.BackColor = System.Drawing.Color.FromArgb(128, 255, 128);
+            this.BackColor = GetColorFromConfig();
             this.ControlBox = false;
             this.WindowState = FormWindowState.Maximized;
 
@@ -72,6 +73,28 @@
         private void ExitCommand_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private Color GetColorFromConfig()
+        {
+            var overlayColor = ConfigurationManager.AppSettings["OverlayColor"] ?? "128, 255, 128";
+
+            var colors = overlayColor.Split(',');
+
+            int red = GetInt(colors[0]);
+            int green = GetInt(colors[1]);
+            int blue = GetInt(colors[2]);
+
+            return System.Drawing.Color.FromArgb(red, green, blue);
+        }
+
+        private int GetInt(string colorString)
+        {
+            int returnInt = 0;
+
+            int.TryParse(colorString.Trim(), out returnInt);
+
+            return returnInt;
         }
 
         private void OptionsCommand_Click(object sender, EventArgs e)

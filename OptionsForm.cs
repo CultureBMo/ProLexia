@@ -12,6 +12,8 @@ namespace ProLexia
 {
     public partial class OptionsForm : Form
     {
+        private string overlayColor = string.Empty;
+
         public OptionsForm()
         {
             InitializeComponent();
