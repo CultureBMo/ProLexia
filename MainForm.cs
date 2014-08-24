@@ -8,18 +8,24 @@
     {
         private System.Windows.Forms.ContextMenu contextMenu;
         private System.Windows.Forms.MenuItem exitCommand;
+        private System.Windows.Forms.MenuItem optionsCommand;
 
         public MainForm()
         {
             this.InitializeComponent();
 
+            this.optionsCommand = new System.Windows.Forms.MenuItem();
+            this.optionsCommand.Index = 0;
+            this.optionsCommand.Text = "O&ptions";
+            this.optionsCommand.Click += new System.EventHandler(this.OptionsCommand_Click);
+
             this.exitCommand = new System.Windows.Forms.MenuItem();
-            this.exitCommand.Index = 0;
-            this.exitCommand.Text = "E&xit";
+            this.exitCommand.Index = 1;
+            this.exitCommand.Text = "Ex&it";
             this.exitCommand.Click += new System.EventHandler(this.ExitCommand_Click);
 
             this.contextMenu = new System.Windows.Forms.ContextMenu();
-            this.contextMenu.MenuItems.AddRange(new[] { this.exitCommand });
+            this.contextMenu.MenuItems.AddRange(new[] { this.optionsCommand, this.exitCommand });
 
             this.notifyIcon.Icon = new Icon("Windows.ico");
             this.notifyIcon.ContextMenu = this.contextMenu;
@@ -66,6 +72,12 @@
         private void ExitCommand_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void OptionsCommand_Click(object sender, EventArgs e)
+        {
+            var optionsForm = new OptionsForm();
+            optionsForm.ShowDialog(this);
         }
     }
 }
