@@ -9,6 +9,7 @@
     {
         private System.Windows.Forms.ContextMenu contextMenu;
         private System.Windows.Forms.MenuItem exitCommand;
+        private byte opacity = 128;
         private System.Windows.Forms.MenuItem optionsCommand;
 
         public MainForm()
@@ -38,10 +39,9 @@
             this.ControlBox = false;
             this.WindowState = FormWindowState.Maximized;
 
-            int wl = GetWindowLong(this.Handle, GWL.ExStyle);
-            wl = wl | 0x80000 | 0x20;
-            SetWindowLong(this.Handle, GWL.ExStyle, wl);
-            SetLayeredWindowAttributes(this.Handle, 0, 128, LWA.Alpha);
+            GetOpacityFromConfig();
+
+            SetWindow();
         }
 
         public enum GWL
@@ -59,6 +59,20 @@
         {
             Transparent = 0x20,
             Layered = 0x80000
+        }
+
+        public byte OverlayOpacity
+        {
+            get
+            {
+                return this.opacity;
+            }
+            set
+            {
+                this.opacity = value;
+
+                SetWindow();
+            }
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "GetWindowLong")]
@@ -97,10 +111,27 @@
             return returnInt;
         }
 
+        private void GetOpacityFromConfig()
+        {
+            var opacity = ConfigurationManager.AppSettings["Opacity"] ?? "128";
+
+            int opacityValue = GetInt(opacity);
+
+            this.opacity = Convert.ToByte(opacityValue);
+        }
+
         private void OptionsCommand_Click(object sender, EventArgs e)
         {
             var optionsForm = new OptionsForm();
             optionsForm.ShowDialog(this);
+        }
+
+        private void SetWindow()
+        {
+            int wl = GetWindowLong(this.Handle, GWL.ExStyle);
+            wl = wl | 0x80000 | 0x20;
+            SetWindowLong(this.Handle, GWL.ExStyle, wl);
+            SetLayeredWindowAttributes(this.Handle, 0, opacity, LWA.Alpha);
         }
     }
 }

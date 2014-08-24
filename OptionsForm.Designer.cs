@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsForm));
             this.chooseButton = new System.Windows.Forms.Button();
-            this.colourTextBox = new System.Windows.Forms.TextBox();
+            this.colorTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,12 +48,12 @@
             this.chooseButton.UseVisualStyleBackColor = true;
             this.chooseButton.Click += new System.EventHandler(this.ChooseButton_Click);
             // 
-            // colourTextBox
+            // colorTextBox
             // 
-            this.colourTextBox.Location = new System.Drawing.Point(64, 14);
-            this.colourTextBox.Name = "colourTextBox";
-            this.colourTextBox.Size = new System.Drawing.Size(100, 20);
-            this.colourTextBox.TabIndex = 1;
+            this.colorTextBox.Location = new System.Drawing.Point(64, 14);
+            this.colorTextBox.Name = "colorTextBox";
+            this.colorTextBox.Size = new System.Drawing.Size(100, 20);
+            this.colorTextBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -80,9 +80,12 @@
             // opacityTrackBar
             // 
             this.opacityTrackBar.Location = new System.Drawing.Point(64, 50);
+            this.opacityTrackBar.Maximum = 255;
             this.opacityTrackBar.Name = "opacityTrackBar";
             this.opacityTrackBar.Size = new System.Drawing.Size(181, 45);
             this.opacityTrackBar.TabIndex = 3;
+            this.opacityTrackBar.Value = 128;
+            this.opacityTrackBar.Scroll += new System.EventHandler(this.opacityTrackBar_Scroll);
             // 
             // OptionsForm
             // 
@@ -92,7 +95,7 @@
             this.Controls.Add(this.opacityTrackBar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.chooseButton);
-            this.Controls.Add(this.colourTextBox);
+            this.Controls.Add(this.colorTextBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -108,7 +111,7 @@
         #endregion
 
         private System.Windows.Forms.Button chooseButton;
-        private System.Windows.Forms.TextBox colourTextBox;
+        private System.Windows.Forms.TextBox colorTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.Label label2;
