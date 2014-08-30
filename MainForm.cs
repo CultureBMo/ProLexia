@@ -9,8 +9,8 @@
     {
         private System.Windows.Forms.ContextMenu contextMenu;
         private System.Windows.Forms.MenuItem exitCommand;
-        private byte overlayOpacity = 128;
         private System.Windows.Forms.MenuItem optionsCommand;
+        private byte overlayOpacity = 128;
 
         public MainForm()
         {
@@ -29,7 +29,7 @@
             this.contextMenu = new System.Windows.Forms.ContextMenu();
             this.contextMenu.MenuItems.AddRange(new[] { this.optionsCommand, this.exitCommand });
 
-            this.notifyIcon.Icon = new Icon("Windows.ico");
+            this.notifyIcon.Icon = new Icon("Janik-Baumgartner-Woocons-Chart-Pie.ico");
             this.notifyIcon.ContextMenu = this.contextMenu;
             this.notifyIcon.Visible = true;
 

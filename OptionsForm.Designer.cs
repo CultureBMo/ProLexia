@@ -42,7 +42,7 @@
             // 
             // chooseButton
             // 
-            this.chooseButton.Location = new System.Drawing.Point(177, 10);
+            this.chooseButton.Location = new System.Drawing.Point(177, 11);
             this.chooseButton.Name = "chooseButton";
             this.chooseButton.Size = new System.Drawing.Size(59, 23);
             this.chooseButton.TabIndex = 1;
