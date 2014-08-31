@@ -10,7 +10,7 @@
         private System.Windows.Forms.ContextMenu contextMenu;
         private System.Windows.Forms.MenuItem exitCommand;
         private System.Windows.Forms.MenuItem optionsCommand;
-        private byte overlayOpacity = 128;
+        private byte overlayOpacity;
 
         public MainForm()
         {

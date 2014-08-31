@@ -25,7 +25,7 @@
         internal static extern int GetWindowLong(IntPtr hWnd, GWL nIndex);
 
         [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "SetLayeredWindowAttributes")]
-        internal static extern bool SetLayeredWindowAttributes(IntPtr hWnd, int crKey, byte alpha, LWA dwFlags);
+        internal static extern bool SetLayeredWindowAttributes(IntPtr hWnd, int crKey, int alpha, LWA dwFlags);
 
         [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "SetWindowLong")]
         internal static extern int SetWindowLong(IntPtr hWnd, GWL nIndex, int dwNewLong);
