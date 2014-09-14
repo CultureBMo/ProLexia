@@ -32,11 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsForm));
             this.chooseButton = new System.Windows.Forms.Button();
             this.colorTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.colorLabel = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.label2 = new System.Windows.Forms.Label();
+            this.opacityLabel = new System.Windows.Forms.Label();
             this.opacityTrackBar = new System.Windows.Forms.TrackBar();
-            this.label3 = new System.Windows.Forms.Label();
+            this.copyrightLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,27 +57,27 @@
             this.colorTextBox.Size = new System.Drawing.Size(100, 20);
             this.colorTextBox.TabIndex = 1;
             // 
-            // label1
+            // colorLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Colour:";
+            this.colorLabel.AutoSize = true;
+            this.colorLabel.Location = new System.Drawing.Point(12, 16);
+            this.colorLabel.Name = "colorLabel";
+            this.colorLabel.Size = new System.Drawing.Size(40, 13);
+            this.colorLabel.TabIndex = 0;
+            this.colorLabel.Text = "Colour:";
             // 
             // colorDialog
             // 
             this.colorDialog.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             // 
-            // label2
+            // opacityLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Opacity:";
+            this.opacityLabel.AutoSize = true;
+            this.opacityLabel.Location = new System.Drawing.Point(12, 50);
+            this.opacityLabel.Name = "opacityLabel";
+            this.opacityLabel.Size = new System.Drawing.Size(46, 13);
+            this.opacityLabel.TabIndex = 2;
+            this.opacityLabel.Text = "Opacity:";
             // 
             // opacityTrackBar
             // 
@@ -90,27 +90,27 @@
             this.opacityTrackBar.Value = 128;
             this.opacityTrackBar.Scroll += new System.EventHandler(this.OpacityTrackBar_Scroll);
             // 
-            // label3
+            // copyrightLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(97, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Copyright © CultureBMo 2014";
+            this.copyrightLabel.AutoSize = true;
+            this.copyrightLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.copyrightLabel.Location = new System.Drawing.Point(97, 93);
+            this.copyrightLabel.Name = "copyrightLabel";
+            this.copyrightLabel.Size = new System.Drawing.Size(148, 13);
+            this.copyrightLabel.TabIndex = 4;
+            this.copyrightLabel.Text = "Copyright © CultureBMo 2014";
             // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(253, 115);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.copyrightLabel);
             this.Controls.Add(this.opacityTrackBar);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.opacityLabel);
             this.Controls.Add(this.chooseButton);
             this.Controls.Add(this.colorTextBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.colorLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OptionsForm";
@@ -127,10 +127,10 @@
 
         private System.Windows.Forms.Button chooseButton;
         private System.Windows.Forms.TextBox colorTextBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label colorLabel;
         private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label opacityLabel;
         private System.Windows.Forms.TrackBar opacityTrackBar;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label copyrightLabel;
     }
 }
