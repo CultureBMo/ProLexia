@@ -1,3 +1,1 @@
 ﻿Downgrade to .NET 2.0? or 3.5?
-﻿Add supprt for video files - try taglib-sharp
-﻿Use a background worker / multithreading to update the log
