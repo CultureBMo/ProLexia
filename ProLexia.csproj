@@ -82,9 +82,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Janik-Baumgartner-Woocons-Chart-Pie.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Janik-Baumgartner-Woocons-Chart-Pie.ico" />
     <Content Include="License.txt" />
     <Content Include="ToDo.txt" />
   </ItemGroup>
