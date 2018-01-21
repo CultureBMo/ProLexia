@@ -11,21 +11,6 @@
         private System.Windows.Forms.MenuItem optionsCommand;
         private int overlayOpacity;
 
-        public int OverlayOpacity
-        {
-            get
-            {
-                return this.overlayOpacity;
-            }
-
-            set
-            {
-                this.overlayOpacity = value;
-
-                this.SetWindow();
-            }
-        }
-
         public MainForm()
         {
             this.InitializeComponent();
@@ -54,6 +39,21 @@
             this.WindowState = FormWindowState.Maximized;
 
             this.OverlayOpacity = Properties.Settings.Default.Opacity;
+        }
+
+        public int OverlayOpacity
+        {
+            get
+            {
+                return this.overlayOpacity;
+            }
+
+            set
+            {
+                this.overlayOpacity = value;
+
+                this.SetWindow();
+            }
         }
 
         private void ExitCommand_Click(object sender, EventArgs e)

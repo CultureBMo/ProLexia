@@ -3,4 +3,5 @@
 /StyleCop.Cache
 /*.suo
 /*.user
-/.vs/*
+/.vs
+/packages
