@@ -1,7 +1,4 @@
 /bin
 /obj
-/StyleCop.Cache
-/*.suo
-/*.user
 /.vs
 /packages
