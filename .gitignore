@@ -3,5 +3,4 @@
 /StyleCop.Cache
 /*.suo
 /*.user
-/.vs/ProLexia/v15/.suo
-/.vs/VSWorkspaceState.json
+/.vs/*

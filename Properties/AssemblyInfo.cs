@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ProLexia")]
-[assembly: AssemblyCopyright("Copyright © CultureBMo 2014")]
+[assembly: AssemblyCopyright("Copyright © CultureBMo 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

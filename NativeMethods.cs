@@ -15,12 +15,6 @@
             Alpha = 0x2
         }
 
-        internal enum WS_EX
-        {
-            Transparent = 0x20,
-            Layered = 0x80000
-        }
-
         [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "GetWindowLong")]
         internal static extern int GetWindowLong(IntPtr hWnd, GWL nIndex);
 

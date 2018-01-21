@@ -98,7 +98,7 @@
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(148, 13);
             this.copyrightLabel.TabIndex = 4;
-            this.copyrightLabel.Text = "Copyright © CultureBMo 2014";
+            this.copyrightLabel.Text = "Copyright © CultureBMo 2017";
             // 
             // OptionsForm
             // 
