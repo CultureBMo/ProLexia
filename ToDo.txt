@@ -1,1 +1,2 @@
-﻿Downgrade to .NET 2.0? or 3.5?
+ Downgrade to .NET 2.0? or 3.5? to extend reach
+ Add icon copyright to settings screen
