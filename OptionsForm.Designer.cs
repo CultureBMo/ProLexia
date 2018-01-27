@@ -37,6 +37,7 @@
             this.opacityLabel = new System.Windows.Forms.Label();
             this.opacityTrackBar = new System.Windows.Forms.TrackBar();
             this.copyrightLabel = new System.Windows.Forms.Label();
+            this.iconCopyrightLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +101,22 @@
             this.copyrightLabel.TabIndex = 4;
             this.copyrightLabel.Text = "Copyright © CultureBMo 2018";
             // 
+            // iconCopyrightLabel
+            // 
+            this.iconCopyrightLabel.AutoSize = true;
+            this.iconCopyrightLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.iconCopyrightLabel.Location = new System.Drawing.Point(102, 115);
+            this.iconCopyrightLabel.Name = "iconCopyrightLabel";
+            this.iconCopyrightLabel.Size = new System.Drawing.Size(143, 13);
+            this.iconCopyrightLabel.TabIndex = 5;
+            this.iconCopyrightLabel.Text = "Icon GPL Janik Baumgartner";
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(253, 115);
+            this.ClientSize = new System.Drawing.Size(253, 137);
+            this.Controls.Add(this.iconCopyrightLabel);
             this.Controls.Add(this.copyrightLabel);
             this.Controls.Add(this.opacityTrackBar);
             this.Controls.Add(this.opacityLabel);
@@ -132,5 +144,6 @@
         private System.Windows.Forms.Label opacityLabel;
         private System.Windows.Forms.TrackBar opacityTrackBar;
         private System.Windows.Forms.Label copyrightLabel;
+        private System.Windows.Forms.Label iconCopyrightLabel;
     }
 }
