@@ -85,7 +85,9 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Janik-Baumgartner-Woocons-Chart-Pie.ico" />
+    <None Include="Janik-Baumgartner-Woocons-Chart-Pie.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="License.txt" />
     <Content Include="ToDo.txt" />
   </ItemGroup>
