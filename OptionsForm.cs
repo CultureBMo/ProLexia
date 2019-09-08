@@ -5,8 +5,6 @@
 
     public partial class OptionsForm : Form
     {
-        private string overlayColor = string.Empty;
-
         public OptionsForm()
         {
             this.InitializeComponent();

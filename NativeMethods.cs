@@ -6,13 +6,13 @@
     {
         internal enum GWL
         {
-            ExStyle = -20
+            ExStyle = -20,
         }
 
         internal enum LWA
         {
             ColorKey = 0x1,
-            Alpha = 0x2
+            Alpha = 0x2,
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "GetWindowLong")]
