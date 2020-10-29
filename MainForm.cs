@@ -3,6 +3,7 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using ProLexia.Properties;
 
     public partial class MainForm : Form
     {
@@ -17,12 +18,12 @@
 
             this.optionsCommand = new System.Windows.Forms.MenuItem();
             this.optionsCommand.Index = 0;
-            this.optionsCommand.Text = "O&ptions";
+            this.optionsCommand.Text = Resources.OptionsText;
             this.optionsCommand.Click += new System.EventHandler(this.OptionsCommand_Click);
 
             this.exitCommand = new System.Windows.Forms.MenuItem();
             this.exitCommand.Index = 1;
-            this.exitCommand.Text = "Ex&it";
+            this.exitCommand.Text = Resources.ExitText;
             this.exitCommand.Click += new System.EventHandler(this.ExitCommand_Click);
 
             this.contextMenu = new System.Windows.Forms.ContextMenu();
@@ -34,7 +35,7 @@
 
             this.ShowInTaskbar = false;
             this.TopMost = true;
-            this.BackColor = this.GetColorFromProperties();
+            this.BackColor = GetColorFromProperties();
             this.ControlBox = false;
             this.WindowState = FormWindowState.Maximized;
 
@@ -56,18 +57,26 @@
             }
         }
 
-        private void ExitCommand_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
         {
-            this.Close();
+            // method moved here from MainForm designer
+            this.optionsCommand.Dispose();
+            this.exitCommand.Dispose();
+            this.contextMenu.Dispose();
+
+            if (disposing && (this.components != null))
+            {
+                this.components.Dispose();
+            }
+
+            base.Dispose(disposing);
         }
 
-        private void OptionsCommand_Click(object sender, EventArgs e)
-        {
-            var optionsForm = new OptionsForm();
-            optionsForm.ShowDialog(this);
-        }
-
-        private Color GetColorFromProperties()
+        private static Color GetColorFromProperties()
         {
             var red = Properties.Settings.Default.OverlayRed;
             var green = Properties.Settings.Default.OverlayGreen;
@@ -76,12 +85,25 @@
             return Color.FromArgb(red, green, blue);
         }
 
+        private void ExitCommand_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void OptionsCommand_Click(object sender, EventArgs e)
+        {
+            using (var optionsForm = new OptionsForm())
+            {
+                optionsForm.ShowDialog(this);
+            }
+        }
+
         private void SetWindow()
         {
             var windowLong = NativeMethods.GetWindowLong(this.Handle, NativeMethods.GWL.ExStyle);
             windowLong = windowLong | 0x80000 | 0x20;
 
-            NativeMethods.SetWindowLong(this.Handle, NativeMethods.GWL.ExStyle, windowLong);
+            var hresult = NativeMethods.SetWindowLong(this.Handle, NativeMethods.GWL.ExStyle, windowLong);
             NativeMethods.SetLayeredWindowAttributes(this.Handle, 0, this.overlayOpacity, NativeMethods.LWA.Alpha);
         }
     }

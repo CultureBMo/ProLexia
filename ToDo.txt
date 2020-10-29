@@ -1,2 +1,0 @@
- Downgrade to .NET 2.0? or 3.5? to extend reach
- Consider porting to .NET Core 3.1?
