@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ProLexia")]
-[assembly: AssemblyCopyright("Copyright © CultureBMo 2020")]
+[assembly: AssemblyCopyright("Copyright © CultureBMo 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
