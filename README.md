@@ -3,16 +3,15 @@ An application to add a coloured overlay onto the screen to help people with Irl
 
 ## Pre-requisites
 In order to run ProLexia you need
-- Windows 7 or later
-- [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)
+- Windows 10
+- [.NET Framework 4.8 Runtime](https://dotnet.microsoft.com/download/dotnet-framework/net48) - you may have this already if you keep Windows up to date
 
 ## Install Instructions
-1) Go to the [latest release page](https://github.com/CultureBMo/ProLexia/releases/tag/v1.1)
-2) Click the Zip file - this will start the download
-3) Once downloaded open the Zip file and copy the contents
-4) Paste into a new folder, e.g. C:\Program Files\Prolexia
-5) Double click ProLexia.exe to run the program
-6) Optionally - create a shortcut to the program on your desktop
+1) Download the [latest Zip file](https://github.com/CultureBMo/ProLexia/releases/download/v1.2/ProLexia.1.2.0.0.zip)
+2) Once downloaded open the Zip file and copy the contents
+3) Paste into a new folder, e.g. C:\Program Files\Prolexia
+4) Double click ProLexia.exe to run the program
+5) Optionally - create a shortcut to the program on your desktop
 
 ## Using ProLexia
 When ProLexia is running you will see a coloured pie chart in the system tray (i.e. bottom-right near the date and time).
