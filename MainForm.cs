@@ -7,30 +7,28 @@
 
     public partial class MainForm : Form
     {
-        private System.Windows.Forms.ContextMenu contextMenu;
-        private System.Windows.Forms.MenuItem exitCommand;
-        private System.Windows.Forms.MenuItem optionsCommand;
+        private System.Windows.Forms.ContextMenuStrip contextMenu;
+        private System.Windows.Forms.ToolStripMenuItem exitCommand;
+        private System.Windows.Forms.ToolStripMenuItem optionsCommand;
         private int overlayOpacity;
 
         public MainForm()
         {
             this.InitializeComponent();
 
-            this.optionsCommand = new System.Windows.Forms.MenuItem();
-            this.optionsCommand.Index = 0;
+            this.optionsCommand = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsCommand.Text = Resources.OptionsText;
             this.optionsCommand.Click += new System.EventHandler(this.OptionsCommand_Click);
 
-            this.exitCommand = new System.Windows.Forms.MenuItem();
-            this.exitCommand.Index = 1;
+            this.exitCommand = new System.Windows.Forms.ToolStripMenuItem();
             this.exitCommand.Text = Resources.ExitText;
             this.exitCommand.Click += new System.EventHandler(this.ExitCommand_Click);
 
-            this.contextMenu = new System.Windows.Forms.ContextMenu();
-            this.contextMenu.MenuItems.AddRange(new[] { this.optionsCommand, this.exitCommand });
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenu.Items.AddRange(new[] { this.optionsCommand, this.exitCommand });
 
             this.notifyIcon.Icon = new Icon("Janik-Baumgartner-Woocons-Chart-Pie.ico");
-            this.notifyIcon.ContextMenu = this.contextMenu;
+            this.notifyIcon.ContextMenuStrip = this.contextMenu;
             this.notifyIcon.Visible = true;
 
             this.ShowInTaskbar = false;
@@ -58,7 +56,7 @@
         }
 
         /// <summary>
-        /// Clean up any resources being used.
+        ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)

@@ -44,6 +44,7 @@
             // chooseButton
             // 
             this.chooseButton.Location = new System.Drawing.Point(177, 11);
+            this.chooseButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chooseButton.Name = "chooseButton";
             this.chooseButton.Size = new System.Drawing.Size(59, 23);
             this.chooseButton.TabIndex = 1;
@@ -54,6 +55,7 @@
             // colorTextBox
             // 
             this.colorTextBox.Location = new System.Drawing.Point(71, 13);
+            this.colorTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.colorTextBox.Name = "colorTextBox";
             this.colorTextBox.Size = new System.Drawing.Size(100, 20);
             this.colorTextBox.TabIndex = 1;
@@ -62,6 +64,7 @@
             // 
             this.colorLabel.AutoSize = true;
             this.colorLabel.Location = new System.Drawing.Point(12, 16);
+            this.colorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.colorLabel.Name = "colorLabel";
             this.colorLabel.Size = new System.Drawing.Size(40, 13);
             this.colorLabel.TabIndex = 0;
@@ -75,6 +78,7 @@
             // 
             this.opacityLabel.AutoSize = true;
             this.opacityLabel.Location = new System.Drawing.Point(12, 50);
+            this.opacityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.opacityLabel.Name = "opacityLabel";
             this.opacityLabel.Size = new System.Drawing.Size(46, 13);
             this.opacityLabel.TabIndex = 2;
@@ -83,6 +87,7 @@
             // opacityTrackBar
             // 
             this.opacityTrackBar.Location = new System.Drawing.Point(64, 50);
+            this.opacityTrackBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.opacityTrackBar.Maximum = 255;
             this.opacityTrackBar.Name = "opacityTrackBar";
             this.opacityTrackBar.Size = new System.Drawing.Size(181, 45);
@@ -96,16 +101,18 @@
             this.copyrightLabel.AutoSize = true;
             this.copyrightLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.copyrightLabel.Location = new System.Drawing.Point(97, 93);
+            this.copyrightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(148, 13);
             this.copyrightLabel.TabIndex = 4;
-            this.copyrightLabel.Text = "Copyright © CultureBMo 2018";
+            this.copyrightLabel.Text = "Copyright © CultureBMo 2021";
             // 
             // iconCopyrightLabel
             // 
             this.iconCopyrightLabel.AutoSize = true;
             this.iconCopyrightLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.iconCopyrightLabel.Location = new System.Drawing.Point(102, 115);
+            this.iconCopyrightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.iconCopyrightLabel.Name = "iconCopyrightLabel";
             this.iconCopyrightLabel.Size = new System.Drawing.Size(143, 13);
             this.iconCopyrightLabel.TabIndex = 5;
@@ -125,6 +132,7 @@
             this.Controls.Add(this.colorLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "OptionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProLexia Options";
