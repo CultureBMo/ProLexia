@@ -8,7 +8,7 @@ In order to run ProLexia you need
 
 ## Install Instructions
 1) Download the [Zip file for the latest release](https://github.com/CultureBMo/ProLexia/releases/download/v2.0/ProLexia.2.0.0.0.zip)
-2) Once downloaded right-click the Zip file and choose Extract All..
+2) In your Downloads folder right-click the Zip file and choose Extract All..
 3) Choose a folder to extract into, e.g. C:\Program Files\ProLexia
 4) Double click ProLexia.exe to run the program. If you don't have the latest version of .NET you will be prompted to [download it](https://dotnet.microsoft.com/download/dotnet/5.0/runtime). On the download page, under Run desktop apps, click Download x64
 5) Optionally - create a shortcut to the program on your desktop
