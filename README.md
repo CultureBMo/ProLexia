@@ -1,6 +1,8 @@
 # ProLexia
 An application to add a coloured overlay onto the screen to help people with Irlen syndrome, visual stress or dyslexia.
 
+<img src="https://3.bp.blogspot.com/-9k0dX5dO_Vo/VCe0op9HCEI/AAAAAAAAAB0/rM6D5gH2T9c/s1600/ProLexia%2BOptions.JPG" height="326" width="400" />
+
 ## Pre-requisites
 In order to run ProLexia you need
 - Windows 10
