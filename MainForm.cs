@@ -75,13 +75,12 @@
         protected override void Dispose(bool disposing)
         {
             // method moved here from MainForm designer
-            this.optionsCommand.Dispose();
-            this.exitCommand.Dispose();
-            this.contextMenu.Dispose();
-
-            if (disposing && (this.components != null))
+            if (disposing)
             {
-                this.components.Dispose();
+                this.optionsCommand.Dispose();
+                this.exitCommand.Dispose();
+                this.contextMenu.Dispose();
+                this.components?.Dispose();
             }
 
             base.Dispose(disposing);
@@ -93,11 +92,9 @@
         /// <returns>The color.</returns>
         private static Color GetColorFromProperties()
         {
-            var red = Properties.Settings.Default.OverlayRed;
-            var green = Properties.Settings.Default.OverlayGreen;
-            var blue = Properties.Settings.Default.OverlayBlue;
+            var settings = Properties.Settings.Default;
 
-            return Color.FromArgb(red, green, blue);
+            return Color.FromArgb(settings.OverlayRed, settings.OverlayGreen, settings.OverlayBlue);
         }
 
         /// <summary>

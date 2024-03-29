@@ -30,10 +30,11 @@
                 this.colorTextBox.BackColor = chosenColor;
                 this.Owner.BackColor = chosenColor;
 
-                Properties.Settings.Default.OverlayRed = chosenColor.R;
-                Properties.Settings.Default.OverlayGreen = chosenColor.G;
-                Properties.Settings.Default.OverlayBlue = chosenColor.B;
-                Properties.Settings.Default.Save();
+                var settings = Properties.Settings.Default;
+                settings.OverlayRed = chosenColor.R;
+                settings.OverlayGreen = chosenColor.G;
+                settings.OverlayBlue = chosenColor.B;
+                settings.Save();
             }
         }
 
@@ -49,8 +50,9 @@
             var mainForm = this.Owner as MainForm;
             mainForm.OverlayOpacity = chosenOpacity;
 
-            Properties.Settings.Default.Opacity = chosenOpacity;
-            Properties.Settings.Default.Save();
+            var settings = Properties.Settings.Default;
+            settings.Opacity = chosenOpacity;
+            settings.Save();
         }
 
         /// <summary>
