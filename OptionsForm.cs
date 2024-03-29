@@ -3,13 +3,24 @@
     using System;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Represents the options form of the application.
+    /// </summary>
     public partial class OptionsForm : Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OptionsForm"/> class.
+        /// </summary>
         public OptionsForm()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the Click event of the ChooseButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void ChooseButton_Click(object sender, EventArgs e)
         {
             if (this.colorDialog.ShowDialog() == DialogResult.OK)
@@ -26,6 +37,11 @@
             }
         }
 
+        /// <summary>
+        /// Handles the Scroll event of the OpacityTrackBar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OpacityTrackBar_Scroll(object sender, EventArgs e)
         {
             var chosenOpacity = this.opacityTrackBar.Value;
@@ -37,6 +53,11 @@
             Properties.Settings.Default.Save();
         }
 
+        /// <summary>
+        /// Handles the Load event of the OptionsForm control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OptionsForm_Load(object sender, EventArgs e)
         {
             var mainForm = this.Owner as MainForm;

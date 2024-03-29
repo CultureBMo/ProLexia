@@ -5,6 +5,9 @@
     using System.Windows.Forms;
     using ProLexia.Properties;
 
+    /// <summary>
+    /// Represents the main form of the application.
+    /// </summary>
     public partial class MainForm : Form
     {
         private System.Windows.Forms.ContextMenuStrip contextMenu;
@@ -12,6 +15,9 @@
         private System.Windows.Forms.ToolStripMenuItem optionsCommand;
         private int overlayOpacity;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainForm"/> class.
+        /// </summary>
         public MainForm()
         {
             this.InitializeComponent();
@@ -40,6 +46,9 @@
             this.OverlayOpacity = Properties.Settings.Default.Opacity;
         }
 
+        /// <summary>
+        /// Gets or sets the overlay opacity.
+        /// </summary>
         public int OverlayOpacity
         {
             get
@@ -74,6 +83,10 @@
             base.Dispose(disposing);
         }
 
+        /// <summary>
+        /// Gets the color from the properties.
+        /// </summary>
+        /// <returns>The color.</returns>
         private static Color GetColorFromProperties()
         {
             var red = Properties.Settings.Default.OverlayRed;
@@ -83,11 +96,21 @@
             return Color.FromArgb(red, green, blue);
         }
 
+        /// <summary>
+        /// Handles the Click event of the ExitCommand control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void ExitCommand_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the OptionsCommand control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OptionsCommand_Click(object sender, EventArgs e)
         {
             using (var optionsForm = new OptionsForm())
@@ -96,6 +119,9 @@
             }
         }
 
+        /// <summary>
+        /// Sets the window.
+        /// </summary>
         private void SetWindow()
         {
             var windowLong = NativeMethods.GetWindowLong(this.Handle, NativeMethods.GWL.ExStyle);
