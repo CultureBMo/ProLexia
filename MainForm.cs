@@ -10,9 +10,9 @@
     /// </summary>
     public partial class MainForm : Form
     {
-        private System.Windows.Forms.ContextMenuStrip contextMenu;
-        private System.Windows.Forms.ToolStripMenuItem exitCommand;
-        private System.Windows.Forms.ToolStripMenuItem optionsCommand;
+        private readonly System.Windows.Forms.ContextMenuStrip contextMenu;
+        private readonly System.Windows.Forms.ToolStripMenuItem exitCommand;
+        private readonly System.Windows.Forms.ToolStripMenuItem optionsCommand;
         private int overlayOpacity;
 
         /// <summary>
@@ -22,12 +22,16 @@
         {
             this.InitializeComponent();
 
-            this.optionsCommand = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsCommand.Text = Resources.OptionsText;
+            this.optionsCommand = new System.Windows.Forms.ToolStripMenuItem
+            {
+                Text = Resources.OptionsText,
+            };
             this.optionsCommand.Click += new System.EventHandler(this.OptionsCommand_Click);
 
-            this.exitCommand = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitCommand.Text = Resources.ExitText;
+            this.exitCommand = new System.Windows.Forms.ToolStripMenuItem
+            {
+                Text = Resources.ExitText,
+            };
             this.exitCommand.Click += new System.EventHandler(this.ExitCommand_Click);
 
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip();
@@ -113,10 +117,8 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OptionsCommand_Click(object sender, EventArgs e)
         {
-            using (var optionsForm = new OptionsForm())
-            {
-                optionsForm.ShowDialog(this);
-            }
+            using var optionsForm = new OptionsForm();
+            optionsForm.ShowDialog(this);
         }
 
         /// <summary>
@@ -127,7 +129,7 @@
             var windowLong = NativeMethods.GetWindowLong(this.Handle, NativeMethods.GWL.ExStyle);
             windowLong = windowLong | 0x80000 | 0x20;
 
-            var hresult = NativeMethods.SetWindowLong(this.Handle, NativeMethods.GWL.ExStyle, windowLong);
+            _ = NativeMethods.SetWindowLong(this.Handle, NativeMethods.GWL.ExStyle, windowLong);
             NativeMethods.SetLayeredWindowAttributes(this.Handle, 0, this.overlayOpacity, NativeMethods.LWA.Alpha);
         }
     }
