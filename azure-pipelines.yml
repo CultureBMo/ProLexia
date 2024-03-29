@@ -1,8 +1,7 @@
-# .NET Desktop
+name: $(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)
 
-# Build and run tests for .NET Desktop or Windows classic desktop solutions.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
+trigger:
+- master
 
 pool:
   vmImage: 'windows-latest'
@@ -24,12 +23,18 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    msbuildArgs: '/t:publish /p:outputpath=$(Build.ArtifactStagingDirectory)'
 
-- task: VSTest@2
+- task: ArchiveFiles@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/ProLexia-$(Build.BuildNumber).zip'
+    replaceExistingArchive: true
 
-- task: WhiteSource Bolt@19
+- task: PublishBuildArtifacts@1
   inputs:
-    cwd: '**/'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/ProLexia-$(Build.BuildNumber).zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
